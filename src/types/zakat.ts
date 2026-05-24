@@ -7,7 +7,7 @@ export type CalculatorMode =
 
 export type IncomePeriod = "monthly" | "yearly";
 
-export type FitrahBasis = "money" | "riceKg" | "stapleLiter";
+export type FitrahBasis = "money" | "stapleFood";
 
 export type ResultTone = "success" | "warning" | "neutral";
 

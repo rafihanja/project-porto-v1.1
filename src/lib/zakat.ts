@@ -284,36 +284,22 @@ export function calculateBusinessZakat(
 
 export function calculateFitrahZakat(
   peopleCount: number,
-  amountOrMarketPrice: number,
+  amountPerPerson: number,
   basis: FitrahBasis
 ): ZakatResult {
-  const amountPerPerson =
-    basis === "money"
-      ? amountOrMarketPrice
-      : basis === "riceKg"
-        ? FITRAH_RICE_KG_PER_PERSON * amountOrMarketPrice
-        : FITRAH_STAPLE_LITER_PER_PERSON * amountOrMarketPrice;
   const zakatAmount = peopleCount * amountPerPerson;
   const basisLabel =
     basis === "money"
       ? "Uang per jiwa"
-      : basis === "riceKg"
-        ? "Beras 2,5 kg per jiwa"
-        : "Makanan pokok 3,5 liter per jiwa";
+      : "Makanan pokok 2,5 kg / 3,5 liter per jiwa";
   const formula =
     basis === "money"
       ? `${formatPlainNumber(peopleCount)} jiwa x ${formatRupiah(amountPerPerson)}`
-      : basis === "riceKg"
-        ? `${formatPlainNumber(
-            peopleCount
-          )} jiwa x ${formatPlainNumber(
-            FITRAH_RICE_KG_PER_PERSON
-          )} kg x ${formatRupiah(amountOrMarketPrice)}`
-        : `${formatPlainNumber(
-            peopleCount
-          )} jiwa x ${formatPlainNumber(
-            FITRAH_STAPLE_LITER_PER_PERSON
-          )} liter x ${formatRupiah(amountOrMarketPrice)}`;
+      : `${formatPlainNumber(peopleCount)} jiwa x nilai setara ${formatPlainNumber(
+          FITRAH_RICE_KG_PER_PERSON
+        )} kg / ${formatPlainNumber(
+          FITRAH_STAPLE_LITER_PER_PERSON
+        )} liter (${formatRupiah(amountPerPerson)} per jiwa)`;
 
   return {
     mode: "fitrah",
@@ -338,8 +324,8 @@ export function calculateFitrahZakat(
         value: basisLabel
       },
       {
-        label: basis === "money" ? "Nominal per jiwa" : "Harga pasar",
-        value: formatRupiah(amountOrMarketPrice)
+        label: basis === "money" ? "Nominal per jiwa" : "Nilai pangan per jiwa",
+        value: formatRupiah(amountPerPerson)
       },
       {
         label: "Nilai per jiwa",

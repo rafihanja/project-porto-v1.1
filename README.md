@@ -8,7 +8,7 @@ Cek Zakat adalah web kalkulator sederhana untuk menghitung estimasi zakat pengha
 - Zakat tabungan dengan acuan 85 gram emas dan status haul.
 - Zakat emas berdasarkan jumlah gram, harga emas, dan status haul.
 - Zakat perdagangan/usaha berdasarkan aset lancar dikurangi hutang jangka pendek.
-- Zakat fitrah berdasarkan jumlah jiwa dan pilihan uang, 2,5 kg beras, atau 3,5 liter makanan pokok.
+- Zakat fitrah berdasarkan jumlah jiwa dan pilihan uang atau makanan pokok setara 2,5 kg / 3,5 liter.
 - Semua perhitungan berjalan di browser tanpa backend, database, atau login.
 
 ## Dasar Perhitungan
@@ -18,7 +18,7 @@ Cek Zakat adalah web kalkulator sederhana untuk menghitung estimasi zakat pengha
 - Nisab tabungan: harga emas per gram x 85.
 - Nisab emas: 85 gram.
 - Nisab perdagangan/usaha: harga emas per gram x 85.
-- Zakat fitrah: jumlah jiwa x nominal per jiwa, atau jumlah jiwa x 2,5 kg beras x harga/kg, atau jumlah jiwa x 3,5 liter makanan pokok x harga/liter.
+- Zakat fitrah: jumlah jiwa x nominal per jiwa, atau jumlah jiwa x nilai makanan pokok setara 2,5 kg / 3,5 liter per jiwa.
 
 Sumber:
 

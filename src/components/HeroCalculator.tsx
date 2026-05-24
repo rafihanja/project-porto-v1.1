@@ -54,7 +54,7 @@ const modeCopy: Record<CalculatorMode, string> = {
   savings: "Saldo tabungan, harga emas, dan status haul.",
   gold: "Jumlah emas, harga per gram, dan status kepemilikan 1 tahun.",
   business: "Aset lancar usaha dikurangi hutang jangka pendek.",
-  fitrah: "Jumlah jiwa dikali uang, beras 2,5 kg, atau makanan pokok 3,5 liter."
+  fitrah: "Jumlah jiwa dikali uang atau makanan pokok setara 2,5 kg / 3,5 liter."
 };
 
 const modeHeading: Record<CalculatorMode, string> = {
@@ -323,9 +323,7 @@ export function HeroCalculator() {
       fitrahAmount,
       fitrahBasis === "money"
         ? "Nominal fitrah per jiwa"
-        : fitrahBasis === "riceKg"
-          ? "Harga beras per kg"
-          : "Harga makanan pokok per liter"
+        : "Nilai makanan pokok per jiwa"
     );
 
     if (!peopleValidation.ok) {
@@ -386,17 +384,13 @@ export function HeroCalculator() {
   ]);
 
   const fitrahAmountPerPerson =
-    fitrahBasis === "money"
-      ? previewNisab
-      : fitrahBasis === "riceKg"
-        ? previewNisab * FITRAH_RICE_KG_PER_PERSON
-        : previewNisab * FITRAH_STAPLE_LITER_PER_PERSON;
+    fitrahBasis === "money" ? previewNisab : previewNisab;
   const fitrahSummaryLabel =
     fitrahBasis === "money"
       ? "Uang per jiwa"
-      : fitrahBasis === "riceKg"
-        ? `${formatPlainNumber(FITRAH_RICE_KG_PER_PERSON)} kg/jiwa`
-        : `${formatPlainNumber(FITRAH_STAPLE_LITER_PER_PERSON)} liter/jiwa`;
+      : `${formatPlainNumber(FITRAH_RICE_KG_PER_PERSON)} kg / ${formatPlainNumber(
+          FITRAH_STAPLE_LITER_PER_PERSON
+        )} liter`;
   const summaryLabel = mode === "fitrah" ? "Acuan fitrah" : "Nisab pembanding";
   const summaryValue =
     mode === "fitrah"
@@ -562,15 +556,9 @@ export function HeroCalculator() {
                     </button>
                     <button
                       type="button"
-                      onClick={() => setFitrahPreset(4, 16_000, "riceKg")}
+                      onClick={() => setFitrahPreset(4, 40_000, "stapleFood")}
                     >
-                      Beras/kg
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setFitrahPreset(4, 12_000, "stapleLiter")}
-                    >
-                      3,5 liter
+                      Pangan 4 jiwa
                     </button>
                   </>
                 ) : null}
@@ -815,29 +803,19 @@ export function HeroCalculator() {
                         Uang
                       </button>
                       <button
-                        className={fitrahBasis === "riceKg" ? "active" : ""}
+                        className={fitrahBasis === "stapleFood" ? "active" : ""}
                         type="button"
                         onClick={() => {
-                          setFitrahBasis("riceKg");
+                          setFitrahBasis("stapleFood");
                           clearResultFor("fitrah");
                         }}
                       >
-                        2,5 kg
-                      </button>
-                      <button
-                        className={fitrahBasis === "stapleLiter" ? "active" : ""}
-                        type="button"
-                        onClick={() => {
-                          setFitrahBasis("stapleLiter");
-                          clearResultFor("fitrah");
-                        }}
-                      >
-                        3,5 liter
+                        Makanan pokok
                       </button>
                     </div>
                     <small>
-                      Beras atau makanan pokok mengikuti harga pasaran dan
-                      ketentuan wilayah setempat.
+                      Takaran fitrah makanan pokok: 2,5 kg atau 3,5 liter per
+                      jiwa. Nilainya mengikuti harga pasaran daerah setempat.
                     </small>
                   </div>
                   <NumberInput
@@ -857,22 +835,18 @@ export function HeroCalculator() {
                     label={
                       fitrahBasis === "money"
                         ? "Nominal / jiwa"
-                        : fitrahBasis === "riceKg"
-                          ? "Harga beras / kg"
-                          : "Harga makanan pokok / liter"
+                        : "Nilai pangan / jiwa"
                     }
                     value={fitrahAmount}
                     placeholder={
                       fitrahBasis === "money"
                         ? "50.000"
-                        : fitrahBasis === "riceKg"
-                          ? "16.000"
-                          : "12.000"
+                        : "40.000"
                     }
                     helper={
                       fitrahBasis === "money"
                         ? "Ikuti ketetapan daerah atau lembaga resmi."
-                        : "Isi harga pasaran bahan pokok di daerah kamu."
+                        : "Isi nilai setara 2,5 kg / 3,5 liter di daerah kamu."
                     }
                     compactHelper
                     onChange={(value) => {

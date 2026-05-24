@@ -22,7 +22,7 @@ const notes = [
   },
   {
     label: "Zakat fitrah",
-    text: "Bisa dihitung sebagai uang, 2,5 kg beras per jiwa, atau 3,5 liter makanan pokok per jiwa. Nominal uang dan harga pasar perlu mengikuti ketentuan daerah setempat."
+    text: "Bisa dihitung sebagai uang atau makanan pokok. Takaran makanan pokoknya setara 2,5 kg atau 3,5 liter per jiwa, dan nilainya mengikuti harga pasar serta ketentuan daerah setempat."
   },
   {
     label: "Kadar zakat",

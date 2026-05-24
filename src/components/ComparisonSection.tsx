@@ -50,7 +50,8 @@ const comparisons = [
       "Pakai mode ini untuk menghitung fitrah keluarga pakai uang, beras, atau makanan pokok.",
     facts: [
       "Jumlah jiwa bisa diubah",
-      "Acuan: uang, 2,5 kg, atau 3,5 liter",
+      "Acuan: uang atau makanan pokok",
+      "Takaran: 2,5 kg / 3,5 liter",
       "Harga mengikuti daerah setempat"
     ]
   }

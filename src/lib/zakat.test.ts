@@ -110,17 +110,11 @@ describe("calculateFitrahZakat", () => {
     assert.match(result.formula, /4 jiwa x Rp/);
   });
 
-  it("converts rice fitrah from 2.5 kg per person", () => {
-    const result = calculateFitrahZakat(4, 16_000, "riceKg");
+  it("uses one staple food option for 2.5 kg or 3.5 liter per person", () => {
+    const result = calculateFitrahZakat(4, 40_000, "stapleFood");
 
     assert.equal(result.zakatAmount, 160_000);
     assert.match(result.formula, /2,5 kg/);
-  });
-
-  it("converts staple fitrah from 3.5 liter per person", () => {
-    const result = calculateFitrahZakat(4, 12_000, "stapleLiter");
-
-    assert.equal(result.zakatAmount, 168_000);
     assert.match(result.formula, /3,5 liter/);
   });
 });
