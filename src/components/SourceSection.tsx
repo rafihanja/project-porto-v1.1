@@ -1,6 +1,10 @@
 import {
+  BAZNAS_CALC_ARTICLE_URL,
+  BAZNAS_FITRAH_PAGE_URL,
   BAZNAS_INCOME_PAGE_URL,
-  BAZNAS_INCOME_SOURCE_URL
+  BAZNAS_INCOME_SOURCE_URL,
+  BAZNAS_REGIONAL_PAGE_URL,
+  BAZNAS_TRADE_PAGE_URL
 } from "@/lib/constants";
 
 const notes = [
@@ -9,12 +13,20 @@ const notes = [
     text: "Angka yang dipakai mengikuti ketetapan BAZNAS RI tahun 2026: Rp7.640.144 per bulan atau Rp91.681.728 per tahun."
   },
   {
-    label: "Nisab tabungan",
+    label: "Tabungan dan emas",
     text: "Menggunakan acuan 85 gram emas. Harga emas dimasukkan manual karena nilainya bisa berubah."
   },
   {
+    label: "Perdagangan/usaha",
+    text: "Mengikuti rumus BAZNAS: 2,5% x aset lancar dikurangi hutang jangka pendek, jika mencapai nisab dan haul."
+  },
+  {
+    label: "Zakat fitrah",
+    text: "Bisa dihitung sebagai uang, 2,5 kg beras per jiwa, atau 3,5 liter makanan pokok per jiwa. Nominal uang dan harga pasar perlu mengikuti ketentuan daerah setempat."
+  },
+  {
     label: "Kadar zakat",
-    text: "Perhitungan awal ini memakai kadar 2,5% untuk penghasilan dan tabungan."
+    text: "Perhitungan zakat mal di kalkulator ini memakai kadar 2,5%."
   }
 ];
 
@@ -35,6 +47,18 @@ export function SourceSection() {
             </a>
             <a href={BAZNAS_INCOME_PAGE_URL} target="_blank" rel="noreferrer">
               Halaman zakat penghasilan
+            </a>
+            <a href={BAZNAS_TRADE_PAGE_URL} target="_blank" rel="noreferrer">
+              Zakat perdagangan
+            </a>
+            <a href={BAZNAS_FITRAH_PAGE_URL} target="_blank" rel="noreferrer">
+              Zakat fitrah
+            </a>
+            <a href={BAZNAS_REGIONAL_PAGE_URL} target="_blank" rel="noreferrer">
+              Ketentuan daerah
+            </a>
+            <a href={BAZNAS_CALC_ARTICLE_URL} target="_blank" rel="noreferrer">
+              Panduan hitung zakat
             </a>
           </div>
         </div>

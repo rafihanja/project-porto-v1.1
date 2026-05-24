@@ -20,6 +20,39 @@ const comparisons = [
       "Harga emas diisi sendiri",
       "Perlu tersimpan sekitar 1 tahun"
     ]
+  },
+  {
+    title: "Kalau punya emas",
+    eyebrow: "Emas",
+    description:
+      "Pakai mode ini untuk emas yang ingin dicek berdasarkan gram, harga emas, dan status haul.",
+    facts: [
+      "Nisab: 85 gram emas",
+      "Harga emas diisi manual",
+      "Kadar zakat: 2,5%"
+    ]
+  },
+  {
+    title: "Kalau punya usaha",
+    eyebrow: "Perdagangan",
+    description:
+      "Pakai mode ini untuk cek aset lancar usaha setelah dikurangi hutang jangka pendek.",
+    facts: [
+      "Rumus: aset lancar - hutang pendek",
+      "Nisab: 85 gram emas",
+      "Perlu haul sekitar 1 tahun"
+    ]
+  },
+  {
+    title: "Kalau menjelang Idul Fitri",
+    eyebrow: "Fitrah",
+    description:
+      "Pakai mode ini untuk menghitung fitrah keluarga pakai uang, beras, atau makanan pokok.",
+    facts: [
+      "Jumlah jiwa bisa diubah",
+      "Acuan: uang, 2,5 kg, atau 3,5 liter",
+      "Harga mengikuti daerah setempat"
+    ]
   }
 ];
 
@@ -33,8 +66,8 @@ export function ComparisonSection() {
         </div>
         <p>
           Orang biasanya tidak mulai dari istilah fikih. Mereka mulai dari
-          pertanyaan sederhana: gaji ini sudah kena zakat atau tabungan ini
-          sudah wajib dizakati?
+          pertanyaan sederhana: gaji ini kena zakat, saldo sudah wajib, emas
+          sudah nisab, atau fitrah keluarga berapa?
         </p>
       </div>
 

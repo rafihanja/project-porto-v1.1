@@ -3,6 +3,11 @@ export function parseCurrencyInput(input: string): number {
   return normalized ? Number(normalized) : 0;
 }
 
+export function parseNumberInput(input: string): number {
+  const normalized = input.replace(",", ".").replace(/[^\d.]/g, "");
+  return normalized ? Number(normalized) : 0;
+}
+
 export function formatRupiah(value: number): string {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -19,4 +24,10 @@ export function formatNumberInput(value: string): string {
   }
 
   return new Intl.NumberFormat("id-ID").format(parsed);
+}
+
+export function formatPlainNumber(value: number): string {
+  return new Intl.NumberFormat("id-ID", {
+    maximumFractionDigits: 2
+  }).format(value);
 }

@@ -1,6 +1,13 @@
-export type CalculatorMode = "income" | "savings";
+export type CalculatorMode =
+  | "income"
+  | "savings"
+  | "gold"
+  | "business"
+  | "fitrah";
 
 export type IncomePeriod = "monthly" | "yearly";
+
+export type FitrahBasis = "money" | "riceKg" | "stapleLiter";
 
 export type ResultTone = "success" | "warning" | "neutral";
 

@@ -6,6 +6,14 @@ type ResultPanelProps = {
   result: ZakatResult | null;
 };
 
+const modeLabels: Record<ZakatResult["mode"], string> = {
+  income: "Mode penghasilan",
+  savings: "Mode tabungan",
+  gold: "Mode emas",
+  business: "Mode usaha",
+  fitrah: "Mode fitrah"
+};
+
 export function ResultPanel({ result }: ResultPanelProps) {
   if (!result) {
     return (
@@ -41,7 +49,7 @@ export function ResultPanel({ result }: ResultPanelProps) {
     >
       <div className="result-topline">
         <span className="status-badge">{result.statusTitle}</span>
-        <span>{result.mode === "income" ? "Mode penghasilan" : "Mode tabungan"}</span>
+        <span>{modeLabels[result.mode]}</span>
       </div>
       <div>
         <span className="result-eyebrow">Estimasi zakat</span>
