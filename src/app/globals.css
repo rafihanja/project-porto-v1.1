@@ -141,9 +141,16 @@ button {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.74fr) minmax(640px, 1.26fr);
-  gap: 28px;
+  grid-template-columns: 1fr;
+  gap: 26px;
   align-items: start;
+}
+
+.hero-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(290px, 360px);
+  gap: 26px;
+  align-items: end;
 }
 
 .section-kicker {
@@ -167,6 +174,7 @@ button {
 }
 
 .hero-copy h1 {
+  max-width: 760px;
   font-size: 3.65rem;
 }
 
@@ -189,7 +197,7 @@ button {
 .daily-note {
   display: grid;
   gap: 0;
-  margin-top: 28px;
+  margin-top: 0;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #d6e5dc;
@@ -1053,7 +1061,7 @@ button {
 }
 
 @media (max-width: 1040px) {
-  .hero-grid,
+  .hero-copy,
   .tool-body,
   .split-heading,
   .source-layout {
