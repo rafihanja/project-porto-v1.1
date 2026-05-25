@@ -147,10 +147,7 @@ button {
 }
 
 .hero-copy {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(290px, 360px);
-  gap: 26px;
-  align-items: end;
+  max-width: 760px;
 }
 
 .section-kicker {
@@ -197,7 +194,7 @@ button {
 .daily-note {
   display: grid;
   gap: 0;
-  margin-top: 0;
+  margin-top: 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #d6e5dc;
@@ -1061,7 +1058,6 @@ button {
 }
 
 @media (max-width: 1040px) {
-  .hero-copy,
   .tool-body,
   .split-heading,
   .source-layout {
